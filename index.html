@@ -44,25 +44,46 @@
 </head>
 
 <body>
+    ,
+petals kiss the breeze.
+
+
     <div class="grid-container">
-        <div>A</div>
-        <div>radiant</div>
-        <div class="last">young</div>
-        <div>woman</div>
-        <div>to</div>
-        <div>light</div>
+        <div> Morning</div>
+        <div>dew</div>
+        <div class="last">glistens</div>
+        <div>songbirds</div>
+        <div>weave</div>
+        <div>through</div>
+        <div>budding</div>
+        <div class="last">trees</div>
+        <div>petals</div>
+        <div>kiss</div>
         <div>the</div>
-        <div class="last">darkest</div>
-        <div>corners</div>
-        <div>of</div>
-        <div class="last">winter</div>
+        <div class="last">breeze</div>
     </div>
     <script>
-        let rotation = 0;
-        document.addEventListener("click", function () {
-            rotation += randomNumber(1, 200);
-            document.body.style.transform = `rotate(${rotation}deg)`;
+        function randomNumber(min, max){
+            return (Math.random() * (max - min)) + min;
+        }
+
+        let divs = document.querySelectorAll(".grid-container div");
+
+        divs.forEach(function (div) {
+            let scale = randomNumber(0.5, 1.2);
+            let translateX = randomNumber(0, 50);
+            let translateY = randomNumber(0, 20);
+            let rotate = randomNumber(0, 360);
+        
+                if (Math.random() > 0.5) {
+                    scale = 1;
+                    translateX = randomNumber(0, 80);
+                    translateY = randomNumber(0, 80);
+                }
+            div.style.transform = `scale(${scale}) translate(${translateX}%, ${translateY}%) rotate(${rotate}deg)`;
         });
+        let rotation = 0;
+        document.addEventListener("click",randomize);
     </script>
 </body>
 
